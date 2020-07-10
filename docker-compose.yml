@@ -20,8 +20,7 @@ services:
       - ./data/mssql:/var/opt/mssql3  
     ports:  
       - '1433:1433'  
-    expose:  
-      - 1433
+   
 
 	
 
