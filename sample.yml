@@ -1,0 +1,25 @@
+version: '3.4'  
+services:  
+  webapps:  
+    links:  
+      - sqlserverService  
+    image: ${DOCKER_REGISTRY-}productssqlserver  
+    build:  
+      context: .  
+      dockerfile: Dockerfile  
+      ports:
+        - '8080:80'
+  
+  sqlserverService:  
+    image: microsoft/mssql-server-linux:2017-latest  
+    #hostname: 'sqlserver'  
+    environment:  
+      ACCEPT_EULA: "Y"  
+      SA_PASSWORD: "Newton@108"  
+    volumes:  
+      - ./data/mssql:/var/opt/mssql3  
+    ports:  
+      - '1433:1433'
+    expose:  
+      - 1433
+	
