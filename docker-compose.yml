@@ -1,8 +1,7 @@
 ﻿version: '3.4'
 services:
   webapp:
-    image: jaganrajagopal/crudmvc
-	build:
+    image: jaganrajagopal/crudmvc	
 	ports:
       - "8080:80"
     depends_on:
