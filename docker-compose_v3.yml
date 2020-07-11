@@ -1,0 +1,15 @@
+﻿version: '3.4'
+services:
+  webapp:
+    image: jaganrajagopal/crudmvc	
+	ports:
+      - "8080:80"
+    depends_on:
+	  - sqldata
+  sqldata:
+    image: mssql-server-linux:latest
+	environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"	
